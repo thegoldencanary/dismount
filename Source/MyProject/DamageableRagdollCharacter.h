@@ -4,12 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "HitLocation.h"
 #include "DamageableRagdollCharacter.generated.h"
 
 UCLASS()
 class MYPROJECT_API ADamageableRagdollCharacter : public ACharacter
 {
 	GENERATED_BODY()
+
+private:
+
+	USkeletalMeshComponent* Mesh;
+
+	FName HeadBoneName;
+	FName BodyBoneName;
+	FName LeftLegBoneName;
+	FName RightLegBoneName;
+	FName RightArmBoneName;
+	FName LeftArmBoneName;
 
 public:
 	// Sets default values for this character's properties
@@ -25,5 +37,7 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void Throw(FName Location, FVector direction);
 
 };
