@@ -15,12 +15,6 @@ ADamageableRagdollCharacter::ADamageableRagdollCharacter()
 void ADamageableRagdollCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	TArray<USkeletalMeshComponent*> Components;
-	GetComponents<USkeletalMeshComponent>(Components);
-	Mesh = Components[0];
-
-
 }
 
 // Called every frame
@@ -35,9 +29,3 @@ void ADamageableRagdollCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
-
-void ADamageableRagdollCharacter::Throw(FName Location, FVector Direction)
-{
-	Mesh->AddImpulse(Direction, Location);
-}
-
